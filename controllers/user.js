@@ -86,9 +86,10 @@
 
 const updateUser = async(req,res)=>{
     let {name,email,password} = req.body
-
-    let userExists = await User.findOne({email})
+    let _id = req.params._id
+    let userExists = await User.findOne({_id:_id})
     console.log(userExists)
+    console.log("hello")
     if(userExists){
         let hashPassword;
         if(password){
